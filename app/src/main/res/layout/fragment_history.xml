@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/list_item_spacing_half"
+        android:paddingLeft="@dimen/list_item_spacing"
+        android:paddingRight="@dimen/list_item_spacing"
+        android:paddingTop="@dimen/list_item_spacing_half">
+
+        <TextView
+            android:id="@+id/label_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/bt_clearHistory"
+            android:text="@string/calculator_history_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/bt_clearHistory" />
+
+        <ImageButton
+            android:id="@id/bt_clearHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="Clear History"
+            android:src="@drawable/ic_delete"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/list_item_spacing_half"
+        android:paddingTop="@dimen/list_item_spacing_half"
+        tools:listitem="@layout/fragment_history_item" />
+
+</LinearLayout>
