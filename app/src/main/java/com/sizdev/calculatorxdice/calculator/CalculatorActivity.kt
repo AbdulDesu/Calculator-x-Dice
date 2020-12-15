@@ -476,8 +476,6 @@ class CalculatorActivity : AppCompatActivity(), HistoryFragment.Listener  {
         Toast.makeText(applicationContext, getString(R.string.history_result) + resultText, Toast.LENGTH_SHORT).show()
     }
 
-    // Extension function created to add special behaviour to our Activity.
-    // Here keyword lazy means it won’t be initialised right away but the first time the value is actually needed.
     fun <T : View> Activity.bind(@IdRes idRes: Int): Lazy<T> {
         // Function will be called only by the main thread to improve performance.
         return lazy(LazyThreadSafetyMode.NONE) { findViewById<T>(idRes) }

@@ -58,20 +58,6 @@ class DiceActivity : AppCompatActivity() {
         val dice1Number = Random.nextInt(6) + 1
         val dice2Number = Random.nextInt(6) + 1
 
-        when (dice1Number + dice2Number) {
-            2 -> { if (dice1Number == dice2Number) {diceDouble2?.start()} else dice02?.start()}
-            3 -> dice03?.start()
-            4 -> {if (dice1Number == dice2Number) {diceDouble4?.start()} else dice04?.start()}
-            5 -> dice05?.start()
-            6 -> {if (dice1Number == dice2Number) {diceDouble6?.start()} else dice06?.start()}
-            7 -> dice07?.start()
-            8 -> {if (dice1Number == dice2Number) {diceDouble8?.start()} else dice08?.start()}
-            9 -> dice09?.start()
-            10 -> {if (dice1Number == dice2Number) {diceDouble10?.start()} else dice10?.start()}
-            11 -> dice11?.start()
-            else -> {if (dice1Number == dice2Number) {diceDouble12?.start()} else dice12?.start()}
-        }
-
         val dice1Graphic = when (dice1Number) {
             dice1 -> drawableDice1
             dice2 -> drawableDice2
@@ -88,6 +74,20 @@ class DiceActivity : AppCompatActivity() {
             dice4 -> drawableDice4
             dice5 -> drawableDice5
             else -> drawableDice6
+        }
+
+        when (dice1Number + dice2Number) {
+            2 -> { if (dice1Number == dice2Number) {diceDouble2?.start()} else dice02?.start()}
+            3 -> dice03?.start()
+            4 -> {if (dice1Number == dice2Number) {diceDouble4?.start()} else dice04?.start()}
+            5 -> dice05?.start()
+            6 -> {if (dice1Number == dice2Number) {diceDouble6?.start()} else dice06?.start()}
+            7 -> dice07?.start()
+            8 -> {if (dice1Number == dice2Number) {diceDouble8?.start()} else dice08?.start()}
+            9 -> dice09?.start()
+            10 -> {if (dice1Number == dice2Number) {diceDouble10?.start()} else dice10?.start()}
+            11 -> dice11?.start()
+            else -> {if (dice1Number == dice2Number) {diceDouble12?.start()} else dice12?.start()}
         }
 
         iv_showDice.setImageResource(dice1Graphic)
