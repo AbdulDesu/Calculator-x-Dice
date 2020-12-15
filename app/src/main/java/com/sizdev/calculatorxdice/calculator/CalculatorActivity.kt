@@ -40,7 +40,7 @@ class CalculatorActivity : AppCompatActivity(), HistoryFragment.Listener  {
 
     private val INIT = ""
 
-    private val ADDITION = " + "
+    private val ADDITION = " + " // String Value of Math Operation
     private val SUBTRACTION = " − "
     private val MULTIPLICATION = " × "
     private val DIVISION = " ÷ "
