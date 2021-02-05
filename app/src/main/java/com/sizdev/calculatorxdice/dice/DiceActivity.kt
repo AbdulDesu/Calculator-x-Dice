@@ -10,6 +10,9 @@ import kotlin.random.Random
 
 class DiceActivity : AppCompatActivity() {
 
+    // Set Media Player
+    private lateinit var audio: MediaPlayer
+
     // Number of dice
     private val dice1 = 1
     private val dice2 = 2
@@ -37,23 +40,6 @@ class DiceActivity : AppCompatActivity() {
     }
 
     private fun diceRolled() {
-        val dice02: MediaPlayer? = MediaPlayer.create(this, R.raw.dice2)
-        val dice03: MediaPlayer? = MediaPlayer.create(this, R.raw.dice3)
-        val dice04: MediaPlayer? = MediaPlayer.create(this, R.raw.dice4)
-        val dice05: MediaPlayer? = MediaPlayer.create(this, R.raw.dice5)
-        val dice06: MediaPlayer? = MediaPlayer.create(this, R.raw.dice6)
-        val dice07: MediaPlayer? = MediaPlayer.create(this, R.raw.dice7)
-        val dice08: MediaPlayer? = MediaPlayer.create(this, R.raw.dice8)
-        val dice09: MediaPlayer? = MediaPlayer.create(this, R.raw.dice9)
-        val dice10: MediaPlayer? = MediaPlayer.create(this, R.raw.dice10)
-        val dice11: MediaPlayer? = MediaPlayer.create(this, R.raw.dice11)
-        val dice12: MediaPlayer? = MediaPlayer.create(this, R.raw.dice12)
-        val diceDouble2: MediaPlayer? = MediaPlayer.create(this, R.raw.dicedouble2)
-        val diceDouble4: MediaPlayer? = MediaPlayer.create(this, R.raw.dicedouble4)
-        val diceDouble6: MediaPlayer? = MediaPlayer.create(this, R.raw.dicedouble6)
-        val diceDouble8: MediaPlayer? = MediaPlayer.create(this, R.raw.dicedouble8)
-        val diceDouble10: MediaPlayer? = MediaPlayer.create(this, R.raw.dicedouble10)
-        val diceDouble12: MediaPlayer? = MediaPlayer.create(this, R.raw.dicedouble12)
 
         val dice1Number = Random.nextInt(6) + 1
         val dice2Number = Random.nextInt(6) + 1
@@ -77,17 +63,95 @@ class DiceActivity : AppCompatActivity() {
         }
 
         when (dice1Number + dice2Number) {
-            2 -> { if (dice1Number == dice2Number) {diceDouble2?.start()} else dice02?.start()}
-            3 -> dice03?.start()
-            4 -> {if (dice1Number == dice2Number) {diceDouble4?.start()} else dice04?.start()}
-            5 -> dice05?.start()
-            6 -> {if (dice1Number == dice2Number) {diceDouble6?.start()} else dice06?.start()}
-            7 -> dice07?.start()
-            8 -> {if (dice1Number == dice2Number) {diceDouble8?.start()} else dice08?.start()}
-            9 -> dice09?.start()
-            10 -> {if (dice1Number == dice2Number) {diceDouble10?.start()} else dice10?.start()}
-            11 -> dice11?.start()
-            else -> {if (dice1Number == dice2Number) {diceDouble12?.start()} else dice12?.start()}
+            2 -> {
+                audio = MediaPlayer.create(this, R.raw.dicedouble2)
+                audio.start()
+                Toast.makeText(this, "You got double 2 !", Toast.LENGTH_SHORT).show()
+            }
+            3 -> {
+                audio = MediaPlayer.create(this, R.raw.dice3)
+                audio.start()
+                Toast.makeText(this, "You got 3 !", Toast.LENGTH_SHORT).show()
+            }
+            4 -> {
+                if (dice1Number == dice2Number) {
+                    audio = MediaPlayer.create(this, R.raw.dicedouble4)
+                    audio.start()
+                    Toast.makeText(this, "You got double 4 !", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    audio = MediaPlayer.create(this, R.raw.dice4)
+                    audio.start()
+                    Toast.makeText(this, "You got 4 !", Toast.LENGTH_SHORT).show()
+                }
+            }
+            5 -> {
+                audio = MediaPlayer.create(this, R.raw.dice5)
+                audio.start()
+                Toast.makeText(this, "You got 5 !", Toast.LENGTH_SHORT).show()
+            }
+            6 -> {
+                if (dice1Number == dice2Number) {
+                    audio = MediaPlayer.create(this, R.raw.dicedouble6)
+                    audio.start()
+                    Toast.makeText(this, "You got double 6 !", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    audio = MediaPlayer.create(this, R.raw.dice6)
+                    audio.start()
+                    Toast.makeText(this, "You got 6 !", Toast.LENGTH_SHORT).show()
+                }
+            }
+            7 -> {
+                audio = MediaPlayer.create(this, R.raw.dice7)
+                audio.start()
+                Toast.makeText(this, "You got 7 !", Toast.LENGTH_SHORT).show()
+            }
+            8 -> {
+                if (dice1Number == dice2Number) {
+                    audio = MediaPlayer.create(this, R.raw.dicedouble8)
+                    audio.start()
+                    Toast.makeText(this, "You got double 8 !", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    audio = MediaPlayer.create(this, R.raw.dice8)
+                    audio.start()
+                    Toast.makeText(this, "You got 8 !", Toast.LENGTH_SHORT).show()
+                }
+            }
+            9 -> {
+                audio = MediaPlayer.create(this, R.raw.dice9)
+                audio.start()
+                Toast.makeText(this, "You got 9 !", Toast.LENGTH_SHORT).show()
+            }
+            10 -> {
+                if (dice1Number == dice2Number) {
+                    audio = MediaPlayer.create(this, R.raw.dicedouble10)
+                    audio.start()
+                    Toast.makeText(this, "You got double 10 !", Toast.LENGTH_SHORT).show()
+                } else {
+                    audio = MediaPlayer.create(this, R.raw.dice10)
+                    audio.start()
+                    Toast.makeText(this, "You got 10 !", Toast.LENGTH_SHORT).show()
+                }
+            }
+            11 -> {
+                audio = MediaPlayer.create(this, R.raw.dice11)
+                audio.start()
+                Toast.makeText(this, "You got 11 !", Toast.LENGTH_SHORT).show()
+            }
+            else -> {
+                if (dice1Number == dice2Number) {
+                    audio = MediaPlayer.create(this, R.raw.dicedouble12)
+                    audio.start()
+                    Toast.makeText(this, "You got double 12 !", Toast.LENGTH_SHORT).show()
+                }
+                else {
+                    audio = MediaPlayer.create(this, R.raw.dice12)
+                    audio.start()
+                    Toast.makeText(this, "You got 12 !", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
         iv_showDice.setImageResource(dice1Graphic)
